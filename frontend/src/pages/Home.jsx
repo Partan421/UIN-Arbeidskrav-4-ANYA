@@ -5,12 +5,12 @@ import AnnaProfil from "../Components/AnnaProfil";
 import "../Style/home.scss";
 
 export default function Home(){
-    const [assignments, setAssignments] = useState([])
+    const [krav, setkrav] = useState([])
 
     useEffect(() =>{
         client
-        .fetch(`*[_type == "assignment"]{title, description}`)
-        .then((data) => setAssignments(data))
+        .fetch(`*[_type == "arbeidskrav"]{title, description}`)
+        .then((data) => setkrav(data))
         .catch((error) => console.error("Sanity error", error))
     }, []);
 
@@ -30,11 +30,11 @@ export default function Home(){
 
             <section>
                 <h2>Tidligere Arbeidskrav</h2>
-                {assignments.length === 0 ? 
+                {krav.length === 0 ? 
                 (<p>Laster inn Arbeidskrav</p>
                 ) : (
                     <ul>
-                        {assignments.map((item, index) => (
+                        {krav.map((item, index) => (
                             <li key={index}>
                                 <h3>{item.title}</h3>
                                 <p>{item.description}</p>
