@@ -11,7 +11,7 @@ export default function Home(){
     useEffect(() =>{
         async function fetchArbeidskrav(){
             const alleKrav = await client.fetch(
-                "*[_type == 'arbeidskrav']{title, description}"
+                "*[_type == 'arbeidskrav'] | order(title asc) {title, description}"
             );
             setKrav(alleKrav)
         }
@@ -25,7 +25,7 @@ export default function Home(){
             </header>
             <section>
                 <h2>Gruppemedlemmer</h2>
-                <article className="profiles">
+                <article className="">
                 <YacobProfil />
                 <AnnaProfil />
                 </article>
