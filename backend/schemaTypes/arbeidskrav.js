@@ -5,7 +5,7 @@ const arbeidskrav = {
     fields: [
         {
             name: "title",
-            title: "arbeidskrav",
+            title: "Arbeidskrav",
             type: "string"
         },
         {
