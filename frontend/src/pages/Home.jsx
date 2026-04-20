@@ -2,16 +2,20 @@ import { useEffect, useState } from "react";
 import client from "../sanity/client";
 import YacobProfil from "../Components/YacobProfil";
 import AnnaProfil from "../Components/AnnaProfil";
+import "../Style/arbeidskrav.scss";
 import "../Style/home.scss";
 
 export default function Home(){
-    const [krav, setkrav] = useState([])
+    const [krav, setKrav] = useState(null)
 
     useEffect(() =>{
-        client
-        .fetch(`*[_type == "arbeidskrav"]{title, description}`)
-        .then((data) => setkrav(data))
-        .catch((error) => console.error("Sanity error", error))
+        async function fetchArbeidskrav(){
+            const alleKrav = await client.fetch(
+                "*[_type == 'arbeidskrav']{title, description}"
+            );
+            setKrav(alleKrav)
+        }
+        fetchArbeidskrav();
     }, []);
 
     return(
@@ -19,7 +23,6 @@ export default function Home(){
             <header>
                 <h1>Gruppe 11 - Arbeidskrav 4</h1>
             </header>
-
             <section>
                 <h2>Gruppemedlemmer</h2>
                 <article className="profiles">
@@ -27,15 +30,14 @@ export default function Home(){
                 <AnnaProfil />
                 </article>
             </section>
-
             <section>
                 <h2>Tidligere Arbeidskrav</h2>
-                {krav.length === 0 ? 
+                {krav === null ? 
                 (<p>Laster inn Arbeidskrav</p>
                 ) : (
-                    <ul>
+                    <ul className="arbeidskrav-list">
                         {krav.map((item, index) => (
-                            <li key={index}>
+                            <li key={index} className="arbeidskrav-card">
                                 <h3>{item.title}</h3>
                                 <p>{item.description}</p>
                             </li>
