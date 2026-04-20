@@ -2,12 +2,11 @@
     background: #ffffff;
     padding: 1.5rem;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px #000;
     max-width: 800px;
     margin: 2rem auto;
     text-align: left;
 
-    /* Bilde venstre – tekst høyre */
     display: grid;
     grid-template-columns: 180px 1fr;
     gap: 2rem;
@@ -20,6 +19,7 @@
         h2 {
             margin: 0;
             font-size: 1.6rem;
+            color: #000;
         }
     }
 
@@ -32,7 +32,7 @@
             height: 160px;
             object-fit: cover;
             border-radius: 50%;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            box-shadow: 0 2px 8px #000;
         }
     }
 
