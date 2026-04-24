@@ -15,15 +15,13 @@ export default function AnnaProfil() {
                 <h3>Oversikt:</h3>
                 <ul>
                     <li>
-                        Skole e-mail: 
-                        <a href="mailto:aangyen@hiof.no"
+                        Skole e-mail: <a href="mailto:aangyen@hiof.no"
                         className="email-lenke">
                             aanguyen@hiof.no
                         </a>
                     </li>
                     <li>
-                        Privat e-mail: 
-                        <a href="mailto:anna_nguye97@hotmail.com"
+                        Privat e-mail: <a href="mailto:anna_nguye97@hotmail.com"
                         className="email-lenke">
                             anna_nguyen97@hotmail.com
                         </a> 
