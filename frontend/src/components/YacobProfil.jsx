@@ -1,4 +1,5 @@
 import "../Style/YacobProfil.scss"
+import bildeForYacob from "../Images/QinShiHuang.jpg";
 
 export default function YacobProfil(){
     return(
@@ -7,9 +8,7 @@ export default function YacobProfil(){
                 <h2>Yacob</h2>
             </header>
             <figure>
-                <img src="../Images/QinShiHuang.jpg"
-                alt="Bilde for Yacob"
-                />
+                <img src={bildeForYacob} alt="Bilde for Yacob"/>
             </figure>
             <article>
                 <h3>Info</h3>
